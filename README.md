@@ -33,5 +33,5 @@
 ### 4. Веб-приложение
 Реализация функционала для **планирования и отслеживания прокачки персонажей и оружия**.
 
-![Start](images/start.png)
-![App](images/app.png)
+![Start](main/resources/images/app.png)
+![App](main/resources/images/start.png)
