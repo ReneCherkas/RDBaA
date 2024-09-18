@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "spring.security.require-ssl",
+      "type": "java.lang.String",
+      "description": "Description for spring.security.require-ssl."
+    },
+    {
+      "name": "server.ssl.key.alias",
+      "type": "java.lang.String",
+      "description": "Description for server.ssl.key.alias."
+    }
+  ] }
