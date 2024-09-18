@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.lab_4.DemoApplication
+Main-Class: com.rdbaa.DemoApplication
 
