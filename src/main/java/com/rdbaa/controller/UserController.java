@@ -1,6 +1,6 @@
 package com.rdbaa.controller;
 
-import com.rdbaa.model.data.User;
+import com.rdbaa.model.entity.User;
 import com.rdbaa.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,8 +1,8 @@
 package com.rdbaa.controller;
 
 import com.rdbaa.model.*;
-import com.rdbaa.model.data.User;
-import com.rdbaa.model.data.Weapon;
+import com.rdbaa.model.entity.User;
+import com.rdbaa.model.entity.Weapon;
 import com.rdbaa.repositories.UserRepository;
 import com.rdbaa.repositories.WeaponRepository;
 import org.springframework.beans.factory.annotation.Autowired;

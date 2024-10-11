@@ -1,6 +1,6 @@
 package com.rdbaa.service;
 
-import com.rdbaa.model.data.Character;
+import com.rdbaa.model.entity.Character;
 import com.rdbaa.repositories.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
