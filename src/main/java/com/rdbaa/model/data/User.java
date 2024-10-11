@@ -1,11 +1,11 @@
 package com.rdbaa.model.data;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Data
 @Entity
@@ -18,5 +18,4 @@ public class User {
 
     @Transient
     private String passwordConfirm;
-
 }

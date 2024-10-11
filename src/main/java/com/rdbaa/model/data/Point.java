@@ -1,14 +1,14 @@
 package com.rdbaa.model.data;
 
+import jakarta.persistence.*;
 import lombok.Data;
-
-import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "points")
 public class Point {
-    private @Id @GeneratedValue Long id;
+    private @Id
+    @GeneratedValue Long id;
     private String name;
     private Double firstLevel;
     private Double secondLevel;
