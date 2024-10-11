@@ -1,4 +1,4 @@
-package com.rdbaa.model.data;
+package com.rdbaa.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

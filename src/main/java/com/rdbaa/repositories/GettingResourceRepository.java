@@ -1,6 +1,6 @@
 package com.rdbaa.repositories;
 
-import com.rdbaa.model.data.GettingResource;
+import com.rdbaa.model.entity.GettingResource;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

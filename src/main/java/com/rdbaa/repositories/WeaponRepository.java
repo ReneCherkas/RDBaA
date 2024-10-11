@@ -1,7 +1,7 @@
 package com.rdbaa.repositories;
 
-import com.rdbaa.model.data.User;
-import com.rdbaa.model.data.Weapon;
+import com.rdbaa.model.entity.User;
+import com.rdbaa.model.entity.Weapon;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

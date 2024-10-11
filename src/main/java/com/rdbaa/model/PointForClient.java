@@ -1,6 +1,6 @@
 package com.rdbaa.model;
 
-import com.rdbaa.model.data.User;
+import com.rdbaa.model.entity.User;
 import lombok.Data;
 
 @Data
