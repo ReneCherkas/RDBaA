@@ -5,10 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
-public class DemoApplication {
-
+public class RefactoringDatabasesAndApplicationApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(RefactoringDatabasesAndApplicationApplication.class, args);
     }
-
 }
