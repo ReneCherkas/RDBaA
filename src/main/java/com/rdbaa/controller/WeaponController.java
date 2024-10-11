@@ -5,7 +5,6 @@ import com.rdbaa.model.data.User;
 import com.rdbaa.model.data.Weapon;
 import com.rdbaa.repositories.UserRepository;
 import com.rdbaa.repositories.WeaponRepository;
-import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +12,6 @@ import java.security.Principal;
 import java.util.*;
 
 @RestController
-@URL
 public class WeaponController {
     private final WeaponRepository weaponRepository;
     private final UserRepository userRepository;
