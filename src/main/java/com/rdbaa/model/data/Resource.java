@@ -6,8 +6,8 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "characters")
-public class Character {
+@Table(name = "resources")
+public class Resource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,6 +15,10 @@ public class Character {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "character")
-    private List<ResourceForTalent> resourcesForTalents;
+    @ManyToOne
+    @JoinColumn(name = "id_dungeon")
+    private Dungeon dungeon;
+
+    @OneToMany(mappedBy = "resource")
+    private List<GettingResource> gettingResources;
 }
