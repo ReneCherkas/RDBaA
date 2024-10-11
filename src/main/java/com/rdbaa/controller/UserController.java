@@ -1,7 +1,7 @@
 package com.rdbaa.controller;
 
 import com.rdbaa.model.data.User;
-import com.rdbaa.service.UserService;
+import com.rdbaa.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
