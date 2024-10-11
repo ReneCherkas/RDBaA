@@ -1,13 +1,12 @@
 package com.rdbaa.controller;
 
-import com.rdbaa.model.Day_of_week;
 import com.rdbaa.model.PointForClient;
 import com.rdbaa.model.PointFromClient;
 import com.rdbaa.model.data.Point;
 import com.rdbaa.model.data.User;
 import com.rdbaa.repositories.PointRepository;
 import com.rdbaa.repositories.UserRepository;
-import org.hibernate.validator.constraints.URL;
+import com.rdbaa.service.DayOfWeekService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,17 +18,19 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@URL
 public class PointController {
     private final PointRepository pointRepository;
     private final UserRepository userRepository;
-    private final Day_of_week dayOfWeek;
+//    private final Day_of_week dayOfWeek;
+    private final DayOfWeekService dayOfWeekService;
+
 
     @Autowired
-    PointController(PointRepository pointRepository, UserRepository userRepository, Day_of_week dayOfWeek) {
+    PointController(PointRepository pointRepository, UserRepository userRepository, DayOfWeekService dayOfWeekService) {
         this.pointRepository = pointRepository;
         this.userRepository = userRepository;
-        this.dayOfWeek = dayOfWeek;
+        this.dayOfWeekService = dayOfWeekService;
+//        this.dayOfWeek = dayOfWeek;
     }
 
     @CrossOrigin
@@ -61,7 +62,7 @@ public class PointController {
             existingPoint.setFirstLevel(pointFromClient.getFirstLevel());
             existingPoint.setSecondLevel(pointFromClient.getSecondLevel());
             existingPoint.setThirdLevel(pointFromClient.getThirdLevel());
-            existingPoint.setResult(dayOfWeek.isDay(pointFromClient));
+            existingPoint.setResult(dayOfWeekService.isDay(pointFromClient.getName()));
             Point updatedPoint = pointRepository.save(existingPoint);
             return new PointForClient(updatedPoint.getName(), updatedPoint.getFirstLevel(), updatedPoint.getSecondLevel(), updatedPoint.getThirdLevel(), updatedPoint.getResult(), updatedPoint.getUser());
         } else {
@@ -70,7 +71,7 @@ public class PointController {
             newPoint.setFirstLevel(pointFromClient.getFirstLevel());
             newPoint.setSecondLevel(pointFromClient.getSecondLevel());
             newPoint.setThirdLevel(pointFromClient.getThirdLevel());
-            newPoint.setResult(dayOfWeek.isDay(pointFromClient));
+            newPoint.setResult(dayOfWeekService.isDay(pointFromClient.getName()));
             newPoint.setUser(currentUser);
             Point savedPoint = pointRepository.save(newPoint);
             return new PointForClient(savedPoint.getName(), savedPoint.getFirstLevel(), savedPoint.getSecondLevel(), savedPoint.getThirdLevel(), savedPoint.getResult(), savedPoint.getUser());
