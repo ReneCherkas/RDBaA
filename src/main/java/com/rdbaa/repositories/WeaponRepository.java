@@ -9,6 +9,9 @@ import java.util.Collection;
 
 
 public interface WeaponRepository extends JpaRepository<Weapon, Long> {
+    @Query("SELECT w FROM Weapon w WHERE w.name = ?1")
+    Weapon findByName(String name);
+
     @Query("SELECT u FROM Weapon u WHERE u.user = ?1 ORDER BY u.id DESC")
     Collection<Weapon> findAllByUser(User user);
         Weapon findByUserAndName(User user, String name);

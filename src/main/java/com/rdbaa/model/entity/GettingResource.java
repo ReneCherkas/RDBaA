@@ -7,15 +7,16 @@ import lombok.Data;
 @Entity
 @Table(name = "getting_resources")
 public class GettingResource {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_resources")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "resource_id")
     private Resource resource;
 
-    @ManyToOne
-    @JoinColumn(name = "id_date")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "date_id")
     private Date date;
 }
