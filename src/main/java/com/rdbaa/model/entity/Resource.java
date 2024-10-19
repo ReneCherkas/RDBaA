@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 @Table(name = "resources")
 public class Resource {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,7 +16,10 @@ public class Resource {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "id_dungeon")
+    private Dungeon dungeon;
+
     @OneToMany(mappedBy = "resource")
     private List<GettingResource> gettingResources;
-
 }
