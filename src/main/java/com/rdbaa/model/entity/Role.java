@@ -7,17 +7,16 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "resources")
-public class Resource {
-
+@Table(name = "roles")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "resource")
-    private List<GettingResource> gettingResources;
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
 
 }

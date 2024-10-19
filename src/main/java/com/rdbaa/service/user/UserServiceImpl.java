@@ -30,5 +30,10 @@ public class UserServiceImpl implements UserService {
         if (user == null) throw new UsernameNotFoundException(username);
         return user;
     }
-}
 
+    // Implementation of findByUsername
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username); // Make sure this method exists in the repository
+    }
+}

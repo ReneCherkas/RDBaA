@@ -5,18 +5,19 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "resources_for_talents")
-public class ResourceForTalent {
+@Table(name = "upping_level_of_weapon")
+public class UppingLevelOfWeapon {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_talents")
-    private Character character;
+    @JoinColumn(name = "weapon_id")
+    private Weapon weapon;
 
     @ManyToOne
-    @JoinColumn(name = "id_resources")
-    private Resource resource;
+    @JoinColumn(name = "level_id")
+    private LevelOfWeapon levelOfWeapon;
 
 }
