@@ -1,7 +1,6 @@
 package com.rdbaa.service;
 
 import com.rdbaa.model.entity.Weapon;
-import com.rdbaa.model.entity.GettingResource;
 import com.rdbaa.repositories.WeaponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

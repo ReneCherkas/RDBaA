@@ -1,4 +1,5 @@
 package com.rdbaa.model.entity;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,27 +13,19 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(unique = true, nullable = false)
     private String username;
 
     private String password;
 
-    @Transient
-    private String passwordConfirm;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "username"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private List<Role> roles;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles.stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName()))
-                .toList();
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
