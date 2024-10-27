@@ -1,5 +1,6 @@
 package com.rdbaa.controller;
 
+import com.rdbaa.exception.PointNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
