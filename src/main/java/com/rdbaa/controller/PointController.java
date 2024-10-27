@@ -3,7 +3,6 @@ package com.rdbaa.controller;
 import com.rdbaa.model.PointForClient;
 import com.rdbaa.model.PointFromClient;
 import com.rdbaa.model.entity.User;
-import com.rdbaa.repositories.PointRepository;
 import com.rdbaa.repositories.UserRepository;
 import com.rdbaa.service.DayOfWeekService;
 import org.springframework.beans.factory.annotation.Autowired;

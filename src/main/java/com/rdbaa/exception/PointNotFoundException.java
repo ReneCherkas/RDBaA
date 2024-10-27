@@ -1,4 +1,4 @@
-package com.rdbaa.controller;
+package com.rdbaa.exception;
 
 public class PointNotFoundException extends RuntimeException {
     PointNotFoundException(Long id) {
