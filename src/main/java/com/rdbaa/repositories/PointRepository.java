@@ -1,6 +1,5 @@
 package com.rdbaa.repositories;
 
-import com.rdbaa.model.entity.Point;
 import com.rdbaa.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
