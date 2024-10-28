@@ -50,7 +50,7 @@ public class WebSecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/register", "/login", "/logout", "/css/**", "/js/**", "/img/**", "/", "/error").permitAll()
+                        .requestMatchers("/auth", "/css/**", "/js/**", "/img/**", "/", "/error").permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(ex -> ex

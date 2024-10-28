@@ -1,5 +1,6 @@
 package com.rdbaa.service.user;
 
+import com.rdbaa.exception.WrongUsernameException;
 import com.rdbaa.model.entity.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -10,5 +11,5 @@ public interface UserService extends UserDetailsService {
 
     Optional<User> findByUsername(String username);
 
-    User create(String username, String password);
+    User create(String username, String password) throws WrongUsernameException;
 }
