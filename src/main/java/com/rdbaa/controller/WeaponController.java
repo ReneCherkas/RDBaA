@@ -3,7 +3,6 @@ package com.rdbaa.controller;
 import com.rdbaa.model.entity.Weapon;
 import com.rdbaa.model.entity.WeaponLevel;
 import com.rdbaa.service.WeaponService;
-import com.rdbaa.service.user.UserService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +16,6 @@ public class WeaponController {
     private static final Logger logger = LoggerFactory.getLogger(WeaponController.class);
 
     private final WeaponService weaponService;
-    private final UserService userService;
 
 
     @CrossOrigin
