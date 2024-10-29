@@ -19,6 +19,10 @@ public class WeaponLevel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Weapon weapon;
+
     @Column(nullable = false)
     private Long level;
 

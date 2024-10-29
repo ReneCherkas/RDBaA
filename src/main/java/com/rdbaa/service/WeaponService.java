@@ -1,8 +1,11 @@
 package com.rdbaa.service;
 
 import com.rdbaa.model.entity.Weapon;
+import com.rdbaa.model.entity.WeaponLevel;
+import com.rdbaa.repositories.WeaponLevelsRepository;
 import com.rdbaa.repositories.WeaponRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,10 +15,14 @@ import java.util.List;
 public class WeaponService {
 
     private final WeaponRepository weaponRepository;
+    private final WeaponLevelsRepository weaponLevelsRepository;
 
 
-    List<Weapon> getAll(long pageNumber, long pageSize) {
-        return weaponRepository.findAll
+    public List<Weapon> getAll(int pageNumber, int pageSize) {
+        return weaponRepository.findAll(Pageable.ofSize(pageSize).withPage(pageNumber)).toList();
     }
 
+    public List<WeaponLevel> getWeaponLevels(long id) {
+        return weaponLevelsRepository.findByWeaponId(id);
+    }
 }
