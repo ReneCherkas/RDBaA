@@ -4,8 +4,9 @@
     <targets>
       <target name="s334433@helios.cs.ifmo.ru:22222" type="ssh/sftp" uuid="47f07bbe-de2d-490e-92f5-5b7119c4e5a7">
         <config>
-          <option name="projectRootOnTarget" value="/home/studs/s334433/lab4" />
-          <option name="serverName" value="s334433@helios.cs.ifmo.ru:2222 password" />
+          <option name="projectRootOnTarget" value="$PROJECT_DIR$/../../../../../../../studs/s335135" />
+          <option name="serverName" value="s335135@helios.se.ifmo.ru:2222 password" />
+          <option name="useRsync" value="true" />
         </config>
         <ContributedStateBase type="JavaLanguageRuntime">
           <config>
