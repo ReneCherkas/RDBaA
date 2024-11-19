@@ -22,6 +22,10 @@ public class Character {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private CharacterLevel characterLevel;
+
     @OneToMany
     @JoinColumn(name = "character_id", nullable = false, unique = true)
     private List<Skill> skills;
