@@ -1,15 +1,17 @@
-package com.rdbaa.model.request;
+package com.rdbaa.model.response;
 
+import com.rdbaa.model.dto.WeaponDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RegisterUserRequest {
-    private String username;
-    private String password;
+public class WeaponsResponse {
+    private List<WeaponDto> weapons;
 }

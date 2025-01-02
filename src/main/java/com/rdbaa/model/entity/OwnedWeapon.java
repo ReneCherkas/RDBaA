@@ -6,23 +6,26 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-@Table(name = "characters")
-public class Character {
+@Table(name = "ownedweapons")
+public class OwnedWeapon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false, unique = true)
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "weapon_id")
+    private Weapon weapon;
 
-    @OneToMany
-    @JoinColumn(name = "character_id", nullable = false, unique = true)
-    private List<Skill> skills;
+    @ManyToOne
+    @JoinColumn(name = "level_id")
+    private WeaponLevel level;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private User owner;
 }
