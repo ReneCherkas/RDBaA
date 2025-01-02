@@ -12,6 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WeaponStrategyResponse {
+public class StrategyResponse {
     private List<StrategyPoint> points;
 }

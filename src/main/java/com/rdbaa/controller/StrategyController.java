@@ -1,11 +1,13 @@
 package com.rdbaa.controller;
 
-import com.rdbaa.model.response.CharacterStrategyResponse;
-import com.rdbaa.model.response.WeaponStrategyResponse;
+import com.rdbaa.model.request.CharacterStrategyRequest;
+import com.rdbaa.model.request.WeaponStrategyRequest;
+import com.rdbaa.model.response.StrategyResponse;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
@@ -14,12 +16,12 @@ public class StrategyController {
     private static final Logger logger = LoggerFactory.getLogger(StrategyController.class);
 
     @GetMapping("/strategy/character")
-    public CharacterStrategyResponse getCharacterStrategy() {
-        return new CharacterStrategyResponse();
+    public StrategyResponse getCharacterStrategy(@RequestBody CharacterStrategyRequest request) {
+        return new StrategyResponse();
     }
 
     @GetMapping("/strategy/weapon")
-    public WeaponStrategyResponse getWeaponStrategy() {
-        return new WeaponStrategyResponse();
+    public StrategyResponse getWeaponStrategy(@RequestBody WeaponStrategyRequest request) {
+        return new StrategyResponse();
     }
 }
