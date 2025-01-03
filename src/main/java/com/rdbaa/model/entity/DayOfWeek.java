@@ -1,10 +1,7 @@
 package com.rdbaa.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @AllArgsConstructor
@@ -14,8 +11,19 @@ import lombok.NoArgsConstructor;
 @Table(name = "daysofweek")
 public class DayOfWeek {
 
+    @AllArgsConstructor
+    @Getter
+    @ToString
     public enum DayOfWeekEnum {
-        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+        MONDAY("пн"),
+        TUESDAY("вт"),
+        WEDNESDAY("ср"),
+        THURSDAY("чт"),
+        FRIDAY("пт"),
+        SATURDAY("сб"),
+        SUNDAY("вс");
+
+        private final String ru;
     }
 
     @Id

@@ -1,16 +1,15 @@
 package com.rdbaa.controller;
 
-import com.rdbaa.model.entity.Character;
+import com.rdbaa.model.dto.CharacterDto;
+import com.rdbaa.model.response.CharactersResponse;
 import com.rdbaa.service.CharacterService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.nio.file.attribute.UserPrincipal;
 
 @RestController
 @AllArgsConstructor
@@ -22,7 +21,15 @@ public class CharacterController {
 
     @CrossOrigin
     @GetMapping("/characters")
-    List<Character> allWeapons(@RequestParam(defaultValue = "1") int pageNumber, @RequestParam(defaultValue = "10") int pageSize) {
-        return characterService.getAll(pageNumber, pageSize);
+    CharactersResponse userCharacters(UserPrincipal userPrincipal, @RequestParam(defaultValue = "1") int pageNumber, @RequestParam(defaultValue = "10") int pageSize) {
+        return CharactersResponse.builder().characters(characterService.getAllByUser(userPrincipal, pageNumber, pageSize)).build();
     }
+
+    @CrossOrigin
+    @PostMapping("/characters")
+    ResponseEntity<String> addCharacter(UserPrincipal userPrincipal, @RequestBody CharacterDto characterDto) {
+        characterService.addCharacter(userPrincipal, characterDto);
+        return ResponseEntity.ok("Character successfully added");
+    }
+
 }

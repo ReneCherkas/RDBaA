@@ -23,7 +23,7 @@ public class Skill {
 
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Character character;
+    private Character owner;
 
     @ManyToOne
     @JoinColumn(nullable = false)
