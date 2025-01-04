@@ -28,8 +28,14 @@ public class CharacterController {
     @CrossOrigin
     @PostMapping("/characters")
     ResponseEntity<String> addCharacter(UserPrincipal userPrincipal, @RequestBody CharacterDto characterDto) {
-        characterService.addCharacter(userPrincipal, characterDto);
+        characterService.createCharacter(userPrincipal, characterDto);
         return ResponseEntity.ok("Character successfully added");
     }
 
+    @CrossOrigin
+    @PutMapping("/characters")
+    ResponseEntity<String> modifyCharacter(UserPrincipal userPrincipal, @RequestBody CharacterDto characterDto) {
+        characterService.modifyCharacter(userPrincipal, characterDto);
+        return ResponseEntity.ok("Character successfully modified");
+    }
 }

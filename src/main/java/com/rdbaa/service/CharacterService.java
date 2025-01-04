@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.nio.file.attribute.UserPrincipal;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -63,7 +64,7 @@ public class CharacterService {
                 .toList();
     }
 
-    public OwnedCharacter addCharacter(UserPrincipal userPrincipal, CharacterDto characterDto) {
+    public OwnedCharacter createCharacter(UserPrincipal userPrincipal, CharacterDto characterDto) {
         User user = userRepository.findByUsername(userPrincipal.getName()).orElseThrow();
         if (ownedCharacterRepository.findByOwnerUsernameAndCharacterName(user.getUsername(), characterDto.getName()).isPresent()) {
             throw new CharacterAlreadyExistsException();
@@ -80,7 +81,19 @@ public class CharacterService {
         );
     }
 
-    public OwnedCharacter replaceCharacter(UserPrincipal userPrincipal, CharacterDto characterDto) {
-
+    public OwnedCharacter modifyCharacter(UserPrincipal userPrincipal, CharacterDto characterDto) {
+        User user = userRepository.findByUsername(userPrincipal.getName()).orElseThrow();
+        Optional<OwnedCharacter> ownedCharacterOptional = ownedCharacterRepository.findByOwnerUsernameAndCharacterName(user.getUsername(), characterDto.getName());
+        ownedCharacterOptional.ifPresent(ownedCharacterRepository::delete);
+        Character character = characterRepository.findByName(characterDto.getName()).orElseThrow();
+        return ownedCharacterRepository.save(OwnedCharacter.builder()
+                .owner(user)
+                .character(character)
+                .level(characterLevelRepository.findByCharacterAndLevel(character, characterDto.getLevel()).orElseThrow())
+                .attackLevel(skillLevelRepository.findBySkillOwnerAndLevel(character, characterDto.getAttackLevel()).orElseThrow())
+                .elementalSkillLevel(skillLevelRepository.findBySkillOwnerAndLevel(character, characterDto.getElementalSkillLevel()).orElseThrow())
+                .elementalBurstLevel(skillLevelRepository.findBySkillOwnerAndLevel(character, characterDto.getElementalBurstLevel()).orElseThrow())
+                .build()
+        );
     }
 }
