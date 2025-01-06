@@ -1,4 +1,4 @@
 package com.rdbaa.exception;
 
-public class CharacterAlreadyExistsException extends RuntimeException {
+public class CharacterAlreadyExistsException extends Exception {
 }
