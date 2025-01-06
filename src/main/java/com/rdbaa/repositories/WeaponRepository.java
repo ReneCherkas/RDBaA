@@ -14,4 +14,6 @@ public interface WeaponRepository extends JpaRepository<Weapon, Long> {
 
     Collection<Weapon> findAll(Pageable pageable, Sort sort);
 
+    Optional<Weapon> findByName(String name);
+
 }

@@ -20,4 +20,8 @@ public class Weapon {
 
     @Column(nullable = false, unique = true)
     private String name;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private WeaponType weaponType;
 }
