@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.DayOfWeek;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -27,10 +28,22 @@ public class CharacterService {
     private final SkillLevelRepository skillLevelRepository;
     private final DungeonScheduleRepository dungeonScheduleRepository;
 
+    private String russianDayOfWeek(DayOfWeek dayOfWeek) {
+        return switch (dayOfWeek) {
+            case MONDAY -> "пн";
+            case TUESDAY -> "вт";
+            case WEDNESDAY -> "ср";
+            case THURSDAY -> "чт";
+            case FRIDAY -> "пт";
+            case SATURDAY -> "сб";
+            case SUNDAY -> "вс";
+        };
+    }
+
     private String levelUpDaysByOwnedCharacter(OwnedCharacter ownedCharacter) {
         return Stream.concat(
                         characterLevelRepository.findAllByCharacter(ownedCharacter.getCharacter())
-                                .stream().map(CharacterLevel::getResourcesToNextLevel)
+                                .stream().map(CharacterLevel::getNeeds)
                                 .flatMap(Collection::stream),
                         skillLevelRepository.findAllBySkillOwner(ownedCharacter.getCharacter())
                                 .stream().map(SkillLevel::getResourcesToNextLevel)
@@ -40,8 +53,7 @@ public class CharacterService {
                 .map(dungeonScheduleRepository::findAllByItemStackItemName)
                 .flatMap(Collection::stream)
                 .map(DungeonSchedule::getDayOfWeek)
-                .map(DayOfWeek::getDayOfWeek)
-                .map(DayOfWeek.DayOfWeekEnum::getRu)
+                .map(this::russianDayOfWeek)
                 .distinct()
                 .collect(Collectors.joining(" "));
     }

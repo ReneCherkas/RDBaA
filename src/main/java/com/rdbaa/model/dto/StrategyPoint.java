@@ -5,14 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
 public class StrategyPoint {
-    private Date date;
+    private LocalDate date;
     private String dungeonName;
     private String itemName;
     private long tryingCount;

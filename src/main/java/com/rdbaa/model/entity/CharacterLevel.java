@@ -32,5 +32,5 @@ public class CharacterLevel {
             joinColumns = @JoinColumn(name = "character_id"),
             inverseJoinColumns = @JoinColumn(name = "itemstack_id")
     )
-    private List<ItemStack> resourcesToNextLevel;
+    private List<ItemStack> needs;
 }
