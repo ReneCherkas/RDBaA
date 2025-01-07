@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.DayOfWeek;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,8 +23,7 @@ public class DungeonSchedule {
     @JoinColumn(nullable = false)
     private Dungeon dungeon;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
+    @Enumerated(EnumType.STRING)
     private DayOfWeek dayOfWeek;
 
     @ManyToOne

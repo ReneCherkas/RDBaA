@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Data
-@Table(name = "weapon_levels")
+@Table(name = "weaponlevels")
 public class WeaponLevel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

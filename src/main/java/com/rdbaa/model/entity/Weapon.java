@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-@Table(name = "weapon")
+@Table(name = "weapons")
 public class Weapon {
 
     @Id
@@ -20,4 +20,8 @@ public class Weapon {
 
     @Column(nullable = false, unique = true)
     private String name;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private WeaponType weaponType;
 }

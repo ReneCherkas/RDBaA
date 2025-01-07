@@ -10,4 +10,6 @@ public interface DungeonScheduleRepository extends JpaRepository<DungeonSchedule
     Optional<DungeonSchedule> findById(long id);
 
     List<DungeonSchedule> findAllByDungeonId(long dungeonId);
+
+    List<DungeonSchedule> findAllByItemStackItemName(String itemName);
 }
