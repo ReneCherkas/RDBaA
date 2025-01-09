@@ -46,7 +46,7 @@ public class CharacterService {
                                 .stream().map(CharacterLevel::getNeeds)
                                 .flatMap(Collection::stream),
                         skillLevelRepository.findAllBySkillOwner(ownedCharacter.getCharacter())
-                                .stream().map(SkillLevel::getNeeds)
+                                .stream().map(SkillLevel::getResourcesToNextLevel)
                                 .flatMap(Collection::stream)
                 ).map(itemStack -> itemStack.getItem().getName())
                 .distinct()
