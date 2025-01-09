@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface OwnedCharacterRepository extends JpaRepository<OwnedCharacter, Long> {
-    Optional<OwnedCharacter> findById(long id);
 
     List<OwnedCharacter> findAllByOwnerUsername(String username, Pageable pageable);
 

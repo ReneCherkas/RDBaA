@@ -24,5 +24,5 @@ public class WeaponType {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
-    private WeaponTypeEnum weaponType;
+    private WeaponTypeEnum skillType;
 }

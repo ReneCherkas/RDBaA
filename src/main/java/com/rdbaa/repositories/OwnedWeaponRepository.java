@@ -10,8 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface OwnedWeaponRepository extends JpaRepository<OwnedWeapon, Long> {
-    Optional<OwnedWeapon> findById(long id);
-
     List<OwnedWeapon> findAllByOwnerUsername(String username, Pageable pageable);
 
     Optional<OwnedWeapon> findByOwnerUsernameAndWeaponName(String username, String weaponName);

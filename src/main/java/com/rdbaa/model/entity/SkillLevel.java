@@ -19,7 +19,7 @@ public class SkillLevel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(nullable = false)
     private Skill skill;
 
@@ -32,5 +32,5 @@ public class SkillLevel {
             joinColumns = @JoinColumn(name = "weapon_id"),
             inverseJoinColumns = @JoinColumn(name = "itemstack_id")
     )
-    private List<ItemStack> needs;
+    private List<ItemStack> resourcesToNextLevel;
 }
