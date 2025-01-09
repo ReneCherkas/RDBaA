@@ -2,6 +2,7 @@ package com.rdbaa.repositories;
 
 import com.rdbaa.model.entity.Character;
 import com.rdbaa.model.entity.SkillLevel;
+import com.rdbaa.model.entity.SkillType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -12,5 +13,5 @@ public interface SkillLevelRepository extends JpaRepository<SkillLevel, Long> {
 
     List<SkillLevel> findAllBySkillOwner(Character character);
 
-    Optional<SkillLevel> findBySkillOwnerAndLevel(Character character, Long level);
+    Optional<SkillLevel> findBySkillOwnerAndSkillSkillTypeSkillTypeAndLevel(Character character, SkillType.SkillTypeEnum skillType, Long level);
 }

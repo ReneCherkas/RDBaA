@@ -46,7 +46,7 @@ public class CharacterService {
                                 .stream().map(CharacterLevel::getNeeds)
                                 .flatMap(Collection::stream),
                         skillLevelRepository.findAllBySkillOwner(ownedCharacter.getCharacter())
-                                .stream().map(SkillLevel::getResourcesToNextLevel)
+                                .stream().map(SkillLevel::getNeeds)
                                 .flatMap(Collection::stream)
                 ).map(itemStack -> itemStack.getItem().getName())
                 .distinct()
@@ -86,9 +86,9 @@ public class CharacterService {
                 .owner(user)
                 .character(character)
                 .level(characterLevelRepository.findByCharacterAndLevel(character, characterDto.getLevel()).orElseThrow())
-                .attackLevel(skillLevelRepository.findBySkillOwnerAndLevel(character, characterDto.getAttackLevel()).orElseThrow())
-                .elementalSkillLevel(skillLevelRepository.findBySkillOwnerAndLevel(character, characterDto.getElementalSkillLevel()).orElseThrow())
-                .elementalBurstLevel(skillLevelRepository.findBySkillOwnerAndLevel(character, characterDto.getElementalBurstLevel()).orElseThrow())
+                .attackLevel(skillLevelRepository.findBySkillOwnerAndSkillSkillTypeSkillTypeAndLevel(character, SkillType.SkillTypeEnum.ATTACK, characterDto.getAttackLevel()).orElseThrow())
+                .elementalSkillLevel(skillLevelRepository.findBySkillOwnerAndSkillSkillTypeSkillTypeAndLevel(character, SkillType.SkillTypeEnum.ELEMENTAL_SKILL, characterDto.getElementalSkillLevel()).orElseThrow())
+                .elementalBurstLevel(skillLevelRepository.findBySkillOwnerAndSkillSkillTypeSkillTypeAndLevel(character, SkillType.SkillTypeEnum.ELEMENTAL_BURST, characterDto.getElementalBurstLevel()).orElseThrow())
                 .build()
         );
     }
@@ -103,9 +103,9 @@ public class CharacterService {
                 .owner(user)
                 .character(character)
                 .level(characterLevelRepository.findByCharacterAndLevel(character, characterDto.getLevel()).orElseThrow())
-                .attackLevel(skillLevelRepository.findBySkillOwnerAndLevel(character, characterDto.getAttackLevel()).orElseThrow())
-                .elementalSkillLevel(skillLevelRepository.findBySkillOwnerAndLevel(character, characterDto.getElementalSkillLevel()).orElseThrow())
-                .elementalBurstLevel(skillLevelRepository.findBySkillOwnerAndLevel(character, characterDto.getElementalBurstLevel()).orElseThrow())
+                .attackLevel(skillLevelRepository.findBySkillOwnerAndSkillSkillTypeSkillTypeAndLevel(character, SkillType.SkillTypeEnum.ATTACK, characterDto.getAttackLevel()).orElseThrow())
+                .elementalSkillLevel(skillLevelRepository.findBySkillOwnerAndSkillSkillTypeSkillTypeAndLevel(character, SkillType.SkillTypeEnum.ELEMENTAL_SKILL, characterDto.getElementalSkillLevel()).orElseThrow())
+                .elementalBurstLevel(skillLevelRepository.findBySkillOwnerAndSkillSkillTypeSkillTypeAndLevel(character, SkillType.SkillTypeEnum.ELEMENTAL_BURST, characterDto.getElementalBurstLevel()).orElseThrow())
                 .build()
         );
     }
