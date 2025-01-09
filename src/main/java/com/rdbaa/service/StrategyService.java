@@ -22,8 +22,8 @@ public class StrategyService {
     private final WeaponLevelsRepository weaponLevelsRepository;
     private final CharacterLevelRepository characterLevelRepository;
     private final DungeonScheduleRepository dungeonScheduleRepository;
-    private CharacterRepository characterRepository;
-    private WeaponRepository weaponRepository;
+    private final CharacterRepository characterRepository;
+    private final WeaponRepository weaponRepository;
 
     public List<StrategyPoint> strategyPoints(String name, Long newLevel) throws CharacterDoesntExistsException, WeaponDoesntExistsException {
         Optional<Character> characterOptional = characterRepository.findByName(name);

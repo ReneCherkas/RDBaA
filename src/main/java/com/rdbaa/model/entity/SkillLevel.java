@@ -32,5 +32,5 @@ public class SkillLevel {
             joinColumns = @JoinColumn(name = "weapon_id"),
             inverseJoinColumns = @JoinColumn(name = "itemstack_id")
     )
-    private List<ItemStack> resourcesToNextLevel;
+    private List<ItemStack> needs;
 }
