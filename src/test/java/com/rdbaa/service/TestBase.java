@@ -106,6 +106,7 @@ public class TestBase {
             .id(1L)
             .weapon(testWeapon)
             .level(10L)
+            .needs(new ArrayList<>())
             .build();
 
     protected OwnedWeapon testOwnedWeapon = OwnedWeapon.builder()
